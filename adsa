@@ -1,0 +1,217 @@
+[33mcommit df0f3f73f4b50fe481a897af4079a0a92cf1eb7f[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m)[m
+Author: Pedro Ítalo <pedroitalocampos@gmail.com>
+Date:   Mon Jun 24 11:16:01 2024 -0300
+
+    fundamentos js
+
+[1mdiff --git a/.eslintrc.js b/.eslintrc.js[m
+[1mnew file mode 100644[m
+[1mindex 0000000..78b3c65[m
+[1m--- /dev/null[m
+[1m+++ b/.eslintrc.js[m
+[36m@@ -0,0 +1,35 @@[m
+[32m+[m[32mmodule.exports = {[m
+[32m+[m[32m  root: true,[m
+[32m+[m[32m  env: {[m
+[32m+[m[32m    browser: true,[m
+[32m+[m[32m    es2021: true,[m
+[32m+[m[32m    node: true,[m
+[32m+[m[32m  },[m
+[32m+[m[32m  extends: [[m
+[32m+[m[32m    'eslint:recommended',[m
+[32m+[m[32m    'plugin:import/recommended',[m
+[32m+[m[32m    'plugin:node/recommended',[m
+[32m+[m[32m    'plugin:promise/recommended',[m
+[32m+[m[32m    'standard',[m
+[32m+[m[32m  ],[m
+[32m+[m[32m  parserOptions: {[m
+[32m+[m[32m    ecmaVersion: 12,[m
+[32m+[m[32m    sourceType: 'module',[m
+[32m+[m[32m  },[m
+[32m+[m[32m  rules: {[m
+[32m+[m[32m    indent: ['error', 2],[m
+[32m+[m[32m    'linebreak-style': ['error', 'unix'],[m
+[32m+[m[32m    quotes: ['error', 'single'],[m
+[32m+[m[32m    semi: ['error', 'always'],[m
+[32m+[m[32m    'no-console': 'off',[m
+[32m+[m[32m    'no-const-assign': 'error',[m
+[32m+[m[32m    'no-unused-vars': ['warn', { vars: 'all', args: 'after-used', ignoreRestSiblings: false }],[m
+[32m+[m[32m    'comma-dangle': ['error', 'always-multiline'],[m
+[32m+[m[32m    'import/no-unresolved': 'error',[m
+[32m+[m[32m    'node/no-missing-import': 'error',[m
+[32m+[m[32m    'promise/always-return': 'warn',[m
+[32m+[m[32m    'promise/no-return-wrap': 'warn',[m
+[32m+[m[32m    'prefer-const': 'off', // Desativa a regra prefer-const[m
+[32m+[m[32m    'no-var': 'off', // Desativa a regra no-var que substitui var por let[m
+[32m+[m[32m  },[m
+[32m+[m[32m};[m
+[1mdiff --git a/.gitignore b/.gitignore[m
+[1mnew file mode 100644[m
+[1mindex 0000000..1d5692c[m
+[1m--- /dev/null[m
+[1m+++ b/.gitignore[m
+[36m@@ -0,0 +1,3 @@[m
+[32m+[m[32m.prettierrc[m
+[32m+[m[32mpackage-lock.json[m
+[32m+[m[32mnode_modules[m
+[1mdiff --git a/Fundamentos/conceitossimples.js b/Fundamentos/conceitossimples.js[m
+[1mnew file mode 100644[m
+[1mindex 0000000..d5e6426[m
+[1m--- /dev/null[m
+[1m+++ b/Fundamentos/conceitossimples.js[m
+[36m@@ -0,0 +1,15 @@[m
+[32m+[m[32mlet numero = 20;[m
+[32m+[m
+[32m+[m[32mconst Numero2 = 300;[m
+[32m+[m
+[32m+[m[32mconst nome = 'Itlalo';[m
+[32m+[m
+[32m+[m[32mconsole.log(numero);[m
+[32m+[m[32mconsole.log(Numero2);[m
+[32m+[m
+[32m+[m[32mnumero = 9;[m
+[32m+[m
+[32m+[m[32mconsole.log(numero);[m
+[32m+[m
+[32m+[m[32mconsole.log('oi', nome, '!');[m
+[32m+[m[32mconsole.log(`oi, ${nome}!`);[m
+[1mdiff --git a/Fundamentos/objetos/for-in.js b/Fundamentos/objetos/for-in.js[m
+[1mnew file mode 100644[m
+[1mindex 0000000..f18688e[m
+[1m--- /dev/null[m
+[1m+++ b/Fundamentos/objetos/for-in.js[m
+[36m@@ -0,0 +1,14 @@[m
+[32m+[m[32mconst user = {[m
+[32m+[m[32m  name: 'italo campos',[m
+[32m+[m[32m  email: 'jose@gmail.com',[m
+[32m+[m[32m  idade: 23,[m
+[32m+[m[32m  endereco: 'Rua x',[m
+[32m+[m[32m};[m
+[32m+[m
+[32m+[m[32mfor (const key in user) {[m
+[32m+[m[32m  if (key === 'name' || key === 'email') {[m
+[32m+[m[32m    user[key] = user[key].toUpperCase();[m
+[32m+[m[32m  }[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32mconsole.log(user);[m
+[1mdiff --git a/Fundamentos/objetos/obj.js b/Fundamentos/objetos/obj.js[m
+[1mnew file mode 100644[m
+[1mindex 0000000..337216e[m
+[1m--- /dev/null[m
+[1m+++ b/Fundamentos/objetos/obj.js[m
+[36m@@ -0,0 +1,14 @@[m
+[32m+[m[32mconst animal = {[m
+[32m+[m[32m  especie: 'canis lupus',[m
+[32m+[m[32m  habitat: 'terrestre',[m
+[32m+[m[32m  expectaiviadevida: 30,[m
+[32m+[m[32m  ehtrerreste: true,[m
+[32m+[m[32m  populacao: 0,[m
+[32m+[m[32m};[m
+[32m+[m
+[32m+[m[32mconsole.log(animal.especie);[m
+[32m+[m[32mconsole.log(animal.habitat);[m
+[32m+[m
+[32m+[m[32manimal.populacao = 6 * 10 ** 9;[m
+[32m+[m
+[32m+[m[32mconsole.log(animal.populacao);[m
+[1mdiff --git a/Fundamentos/operadores/operadoresaritimedicos.js b/Fundamentos/operadores/operadoresaritimedicos.js[m
+[1mnew file mode 100644[m
+[1mindex 0000000..716227c[m
+[1m--- /dev/null[m
+[1m+++ b/Fundamentos/operadores/operadoresaritimedicos.js[m
+[36m@@ -0,0 +1,29 @@[m
+[32m+[m[32mconst Numero1 = 5;[m
+[32m+[m[32mconst Numero2 = 4;[m
+[32m+[m[32mconst Numero3 = 2;[m
+[32m+[m[32mconst Numero4 = 7;[m
+[32m+[m[32mconst Numero5 = 9;[m
+[32m+[m[32mconst Numero6 = 1;[m
+[32m+[m[32mconst Numero7 = 3;[m
+[32m+[m
+[32m+[m[32mconst soma = Numero1 + Numero3;[m
+[32m+[m[32mconst subtracao = Numero4 - Numero2;[m
+[32m+[m[32mconst multiplicacao = Numero5 * Numero6;[m
+[32m+[m[32mconst elevado1 = Numero7 ** Numero1;[m
+[32m+[m[32mconst elevado2 = Math.pow(2, 3);[m
+[32m+[m[32mconst divisao = 3 / 2;[m
+[32m+[m[32mconst resto = 3 % 1;[m
+[32m+[m[32mconsole.log({ soma });[m
+[32m+[m[32mconsole.log({ subtracao });[m
+[32m+[m[32mconsole.log({ multiplicacao });[m
+[32m+[m[32mconsole.log({ elevado1 });[m
+[32m+[m[32mconsole.log({ elevado2 });[m
+[32m+[m[32mconsole.log({ divisao });[m
+[32m+[m[32mconsole.log({ resto });[m
+[32m+[m
+[32m+[m[32mconst numeronegativo = -9;[m
+[32m+[m
+[32m+[m[32mconst numeroabs = Math.abs(numeronegativo);[m
+[32m+[m
+[32m+[m[32mconsole.log({ numeronegativo });[m
+[32m+[m[32mconsole.log({ numeroabs });[m
+[1mdiff --git a/Fundamentos/vetores/vetores.js b/Fundamentos/vetores/vetores.js[m
+[1mnew file mode 100644[m
+[1mindex 0000000..4e9c2da[m
+[1m--- /dev/null[m
+[1m+++ b/Fundamentos/vetores/vetores.js[m
+[36m@@ -0,0 +1,3 @@[m
+[32m+[m[32mconst nomesAlunos = ['joao', 'Livia', 'Italo', 'Matheus', NaN, 92.8, [false, 95]];[m
+[32m+[m
+[32m+[m[32mconsole.log({ nomesAlunos });[m
+[1mdiff --git a/Fundamentos/while/index.js b/Fundamentos/while/index.js[m
+[1mnew file mode 100644[m
+[1mindex 0000000..1300a76[m
+[1m--- /dev/null[m
+[1m+++ b/Fundamentos/while/index.js[m
+[36m@@ -0,0 +1,17 @@[m
+[32m+[m[32mconst number = 3;[m
+[32m+[m
+[32m+[m[32mconst number3 = 3;[m
+[32m+[m
+[32m+[m[32mfunction checkNumber () {[m
+[32m+[m[32m  if (number > number3) {[m
+[32m+[m[32m    console.log('-1');[m
+[32m+[m[32m  } else if (number3 > number) {[m
+[32m+[m[32m    console.log('numero 3 é maior');[m
+[32m+[m[32m    return -2;[m
+[32m+[m[32m  } else if (number === number3) {[m
+[32m+[m[32m    console.log('é igualllllllll');[m
+[32m+[m[32m    return 0;[m
+[32m+[m[32m  }[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32mcheckNumber();[m
+[1mdiff --git a/Fundamentos/while/while.js b/Fundamentos/while/while.js[m
+[1mnew file mode 100644[m
+[1mindex 0000000..110385d[m
+[1m--- /dev/null[m
+[1m+++ b/Fundamentos/while/while.js[m
+[36m@@ -0,0 +1,3 @@[m
+[32m+[m[32mvar actors = ['Felicia', 'Nathan', 'Neil'];[m
+[32m+[m[32mvar sisters = ['Tia', 'Tamera'];[m
+[32m+[m[32mconsole.log(sisters[0]);[m
+[1mdiff --git a/package.json b/package.json[m
+[1mnew file mode 100644[m
+[1mindex 0000000..3bbe34a[m
+[1m--- /dev/null[m
+[1m+++ b/package.json[m
+[36m@@ -0,0 +1,18 @@[m
+[32m+[m[32m{[m
+[32m+[m[32m  "name": "estudo_javascrip",[m
+[32m+[m[32m  "version": "1.0.0",[m
+[32m+[m[32m  "main": "index.js",[m
+[32m+[m[32m  "scripts": {[m
+[32m+[m[32m    "test": "echo \"Error: no test specified\" && exit 1"[m
+[32m+[m[32m  },[m
+[32m+[m[32m  "author": "italo",[m
+[32m+[m[32m  "license": "ISC",[m
+[32m+[m[32m  "description": "",[m
+[32m+[m[32m  "devDependencies": {[m
+[32m+[m[32m    "eslint": "^8.57.0",[m
+[32m+[m[32m    "eslint-config-standard": "^17.1.0",[m
+[32m+[m[32m    "eslint-plugin-import": "^2.29.1",[m
+[32m+[m[32m    "eslint-plugin-node": "^11.1.0",[m
+[32m+[m[32m    "eslint-plugin-promise": "^6.2.0"[m
+[32m+[m[32m  }[m
+[32m+[m[32m}[m
